@@ -3,24 +3,7 @@
     <name>Project Label</name>
     <vendor email="drinchev@gmail.com" url="https://github.com/drinchev/project-label">Ivan Drinchev</vendor>
 
-    <depends>com.intellij.modules.lang</depends>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.drinchev.projectlabel.preferences.ApplicationPreferences"/>
-        <projectService serviceImplementation="com.drinchev.projectlabel.preferences.ProjectPreferences"/>
-        <projectConfigurable id="ProjectLabel" displayName="Project Label"
-                             instance="com.drinchev.projectlabel.ProjectLabelConfigurable"/>
-        <statusBarWidgetFactory implementation="com.drinchev.projectlabel.ProjectLabelWidgetFactory" order="last"/>
-        <postStartupActivity implementation="com.drinchev.projectlabel.ProjectLabelStartupActivity"/>
-    </extensions>
-
-    <actions>
-        <!-- Add your actions here -->
-    </actions>
-
-    <applicationListeners>
-        <listener class="com.drinchev.projectlabel.ProjectLabelProjectCloseListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
-
+    <content>
+        <module name="project-label.frontend" required-if-available="intellij.platform.frontend"/>
+    </content>
 </idea-plugin>

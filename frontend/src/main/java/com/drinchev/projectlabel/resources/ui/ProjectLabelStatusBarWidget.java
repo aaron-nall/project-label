@@ -2,6 +2,7 @@ package com.drinchev.projectlabel.resources.ui;
 
 import static java.util.Objects.requireNonNull;
 
+import com.drinchev.projectlabel.ProjectLabelConfigurable;
 import com.drinchev.projectlabel.preferences.PreferencesReader;
 import com.drinchev.projectlabel.utils.UtilsUI;
 import com.intellij.openapi.diagnostic.Logger;
@@ -40,7 +41,8 @@ public class ProjectLabelStatusBarWidget extends JButton implements CustomStatus
         addActionListener(event -> {
             rebuildWidget();
             updateUI();
-            ShowSettingsUtil.getInstance().showSettingsDialog(project, "Project Label");
+            ShowSettingsUtil.getInstance()
+                    .editConfigurable(project, new ProjectLabelConfigurable(project));
         });
 
         setStateFromSettings();

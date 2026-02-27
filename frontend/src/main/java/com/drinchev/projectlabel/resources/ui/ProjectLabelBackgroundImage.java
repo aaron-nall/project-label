@@ -62,7 +62,7 @@ public final class ProjectLabelBackgroundImage {
 
         var window = WindowManager.getInstance().getFrame(project);
         if (window == null) {
-            LOG.error("Could not get window for project " + project.getName());
+            LOG.warn("Could not get window for project " + project.getName());
         } else {
             window.addComponentListener(new ComponentAdapter() {
                 @Override

@@ -25,7 +25,7 @@ public class ProjectLabelConfigurable implements Configurable {
     private final ProjectPreferences projectPreferences;
     private final ApplicationPreferences applicationPreferences;
 
-    ProjectLabelConfigurable(@NotNull Project project) {
+    public ProjectLabelConfigurable(@NotNull Project project) {
         this.project = project;
         this.projectPreferences = ProjectPreferences.getInstance(project);
         this.applicationPreferences = ApplicationPreferences.getInstance();

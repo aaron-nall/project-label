@@ -1,0 +1,19 @@
+<idea-plugin package="com.drinchev.projectlabel">
+    <dependencies>
+        <plugin id="com.intellij.modules.lang"/>
+    </dependencies>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="com.drinchev.projectlabel.preferences.ApplicationPreferences"/>
+        <projectService serviceImplementation="com.drinchev.projectlabel.preferences.ProjectPreferences"/>
+        <projectConfigurable id="ProjectLabel" displayName="Project Label"
+                             instance="com.drinchev.projectlabel.ProjectLabelConfigurable"/>
+        <statusBarWidgetFactory implementation="com.drinchev.projectlabel.ProjectLabelWidgetFactory" order="last"/>
+        <postStartupActivity implementation="com.drinchev.projectlabel.ProjectLabelStartupActivity"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.drinchev.projectlabel.ProjectLabelProjectCloseListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
